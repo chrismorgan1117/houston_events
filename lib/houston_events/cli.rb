@@ -1,5 +1,5 @@
-require_relative "../lib/scraper.rb"
-require_relative "../lib/events.rb"
+require_relative "./scraper.rb"
+require_relative "./events.rb"
 require 'nokogiri'
 
 
@@ -10,7 +10,7 @@ class CommandLineInterface
     create_events
     add_descpription_to_events
     list_events
-
+    interaction
   end
 
   def create_events
@@ -32,13 +32,22 @@ class CommandLineInterface
       puts "  location: #{event.location}"
       puts "  date: #{event.date}"
     end
-    puts "Enter number of event you'd like more info on:"
-    input = gets.strip
-    case input
-      if Events.all[input] != nil
-        event.description
-      else
-        puts "Sorry, thats not a valid entry"
+
+  end
+
+  def interaction
+    puts "Enter number of event you'd like more info on(or type list to see the list again):"
+    input = nil
+    while input != "exit"
+      input = gets.strip.downcase
+    
+      case input
+
+      when Events.all[input.to_i] != nil
+        puts "#{event.description}"
+      when input = "list"
+        list_events
+    
       end
     end
   end
