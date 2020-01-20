@@ -1,6 +1,6 @@
-RSpec.describe HoustonEvents do
+RSpec.describe TodaysEvents do
   it "has a version number" do
-    expect(HoustonEvents::VERSION).not_to be nil
+    expect(TodaysEvents::VERSION).not_to be nil
   end
 
   it "does something useful" do

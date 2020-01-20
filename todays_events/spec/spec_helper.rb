@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "houston_events"
+require "todays_events"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

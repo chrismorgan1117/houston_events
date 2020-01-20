@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-
-require './lib/houston_events'
-CommandLineInterface.new.call
