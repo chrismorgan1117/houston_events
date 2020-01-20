@@ -1,7 +1,8 @@
 class Events
   attr_accessor :name, :date, :location, :event_url, :description
   @@all = []
-  def initialize(events)
+  def initialize(events, name)
+    @name = name
     events.each do |attribute, value|
       self.send("#{attribute}=", value)
     end
@@ -21,6 +22,12 @@ class Events
     self
   end
 
+  
+  def self.print_all
+    all.each_with_index do |event, index|
+      puts "#{index+1}.     #{event.name}"
+    end
+  end
 
   def self.all
     @@all

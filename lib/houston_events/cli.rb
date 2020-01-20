@@ -8,9 +8,10 @@ class CommandLineInterface
 
   def call
     create_events
-    add_descpription_to_events
+    add_description_to_events
     list_events
     interaction
+    goodbye
   end
 
   def create_events
@@ -26,13 +27,17 @@ class CommandLineInterface
   end
 
   def list_events
+    #@events = []
+    #Events.all.each do |event|
+    #  @events << event
+    #end
     puts "Here are some events happening soon:"
-    Events.all.each.with_index(1) do |event, x|
-      puts "#{x}. #{event.name}"
-      puts "  location: #{event.location}"
-      puts "  date: #{event.date}"
-    end
-
+    #@events.each_with_index do |event, x|
+    #  puts "#{x}. #{event.name}"
+    #  puts "  location: #{event.location}"
+    #  puts "  date: #{event.date}"
+    #end
+    Events.print_all
   end
 
   def interaction
@@ -52,5 +57,7 @@ class CommandLineInterface
     end
   end
 
-
+  def goodbye
+    puts "Have a nice day!"
+  end
 end
